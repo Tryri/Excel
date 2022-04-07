@@ -1,28 +1,28 @@
 import openpyxl
 import re
 
-filename = '4.xlsx'
+filename = '1.xlsx'
 wb = openpyxl.load_workbook(filename)
-sheet = wb['Лист1']
+sheet = wb.active
 f = sheet.max_row
 k = 0
 for n in range(f):
     k += 1
-    c = sheet[f'B{n + 1}'].value
-    d = sheet[f'A{n + 1}'].value
-    a = str(c)
-    b = re.sub(r' ', '', a)
-    b = re.sub(r',$', '', b)
-    b = re.sub(r'[.]$', '', b)
-    b = re.sub(r'\(специализированныйслужебныйжилищныйфонд\)', '', b)
-    b = re.sub(r'\(специализированныйманевренныйжилищныйфонд\)', '', b)
-    b = re.sub(r'\(специализированныйжилищныйфонддлядетей-сирот\)', '', b)
-    b = re.sub(r'долявправеобщейдолевойсобственности', '', b)
-    b = re.sub(r'долейвжиломдоме', '', b)
-    b = re.sub(r'специализированныйманевренныйжилищныйфонд\)', '', b)
-    sheet[f'B{n+1}'].value = b
+    d = sheet[f'D{n + 1}'].value
+    # d = sheet[f'A{n + 1}'].value
+    d = str(d)
+    d = re.sub(r' ', '', d)
+    d = re.sub(r',$', '', d)
+    d = re.sub(r'[.]$', '', d)
+    d = re.sub(r'\(специализированныйслужебныйжилищныйфонд\)', '', d)
+    d = re.sub(r'\(специализированныйманевренныйжилищныйфонд\)', '', d)
+    d = re.sub(r'\(специализированныйжилищныйфонддлядетей-сирот\)', '', d)
+    d = re.sub(r'долявправеобщейдолевойсобственности', '', d)
+    d = re.sub(r'долейвжиломдоме', '', d)
+    d = re.sub(r'специализированныйманевренныйжилищныйфонд\)', '', d)
+    sheet[f'D{n+1}'].value = d
     # b = re.split(r',', b)
-    print(b)
+    print(d)
 print(k)
-wb.save("5.xlsx")
+wb.save("1.xlsx")
 # print(m)

@@ -1,9 +1,9 @@
 import openpyxl
 import re
 
-filename = '4.xlsx'
+filename = '1.xlsx'
 wb = openpyxl.load_workbook(filename)
-sheet = wb['Лист1']
+sheet = wb.active
 m = 0
 f = sheet.max_row
 k = 0
@@ -22,5 +22,5 @@ for n in range(sheet.max_row):
         n = n - 1
         m += 1
 
-wb.save("4.xlsx")
+wb.save("1.xlsx")
 print(m)

@@ -1,19 +1,26 @@
 import openpyxl
 import re
 
-filename = '5.xlsx'
+filename = '1.xlsx'
 wb = openpyxl.load_workbook(filename)
-sheet = wb['Лист1']
+sheet = wb.active
 f = sheet.max_row
+k = 0
 m = 0
-# sheet.insert_cols(2, 1)
-for n in range(f):
-    c = sheet[f'A{n + 1}'].value
-    c = re.split(r',', c)
-    sheet[f'A{n + 1}'].value = c[0]
-    sheet[f'B{n + 1}'].value = c[1]
-    sheet[f'C{n + 1}'].value = c[2]
-    print(c)
-    m += 1
-wb.save("6.xlsx")
+n1 = 0
+n2 = 0
+for n in sheet["E"]:
+    print(n.row)
+    for k in sheet["E"]:
+        if n.value == k.value and n.row != k.row and n.value != None:
+            n1 = n.row
+            n2 = k.row
+            m += 1
+            print(n.value, k.value)
+            # print(n1, n2)
+            sheet[f'E{n2}'].value = None
+            # sheet[f'C{n2}'].value = None
+            # m += 1
+wb.save("1.xlsx")
 print(m)
+

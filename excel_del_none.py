@@ -7,13 +7,13 @@ sheet = wb.active
 f = sheet.max_row
 k = 0
 m = 0
-for n in sheet["B"]:
+for n in sheet["D"]:
     a = n.value
-    k += 1
-    if a == None:
-        print(k)
-        sheet.delete_rows(k)
-        k = k - 1
+    # k += 1
+    if a == None or a == 'None':
+        # print(k)
+        sheet.delete_rows(n.row)
+        # k = k - 1
         m += 1
 
 wb.save("1.xlsx")

@@ -2,7 +2,7 @@ import csv
 import openpyxl
 import re
 
-filename = 'Без пустых долей и помещений.xlsx'
+filename = '1.xlsx'
 wb = openpyxl.load_workbook(filename)
 sheet = wb.active
 # row = sheet['B2'].value

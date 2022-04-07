@@ -7,19 +7,17 @@ sheet = wb.active
 m = 0
 f = sheet.max_row
 k = 0
-for n in range(sheet.max_row):
-    k =+ 1
-    c = sheet[f'B{n + 1}'].value
-    d = sheet[f'A{n + 1}'].value
+for n in sheet['B']:
+    c = sheet[f'B{n.row}'].value
+    d = sheet[f'A{n.row}'].value
     a = str(c)
     b = re.sub(r' ', '', a)
     b = re.sub(r',$', '', b)
     b = re.split(r',', b)
     if len(b) > 1:
         print(b)
-        print(n+1)
-        sheet.delete_rows(n + 1)
-        n = n - 1
+        print(n.row)
+        sheet.delete_rows(n.row)
         m += 1
 
 wb.save("1.xlsx")

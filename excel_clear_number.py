@@ -6,9 +6,9 @@ wb = openpyxl.load_workbook(filename)
 sheet = wb.active
 f = sheet.max_row
 k = 0
-for n in range(f):
+for n in sheet['B']:
     k += 1
-    d = sheet[f'D{n + 1}'].value
+    d = sheet[f'B{n.row}'].value
     # d = sheet[f'A{n + 1}'].value
     d = str(d)
     d = re.sub(r' ', '', d)
@@ -20,7 +20,7 @@ for n in range(f):
     d = re.sub(r'долявправеобщейдолевойсобственности', '', d)
     d = re.sub(r'долейвжиломдоме', '', d)
     d = re.sub(r'специализированныйманевренныйжилищныйфонд\)', '', d)
-    sheet[f'D{n+1}'].value = d
+    sheet[f'D{n.row}'].value = d
     # b = re.split(r',', b)
     print(d)
 print(k)
